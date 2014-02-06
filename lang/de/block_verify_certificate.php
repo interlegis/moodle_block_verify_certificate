@@ -9,3 +9,5 @@ $string['course'] = 'Kurs';
 $string['date'] = 'Am';
 $string['grade'] = 'Bewertung';
 $string['customtext'] = 'Kurs details';
+$string['enrol_period'] = 'Einschreiben Zeitraum';
+$string['printhours'] = 'Stunden';

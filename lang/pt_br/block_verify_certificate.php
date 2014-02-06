@@ -9,3 +9,5 @@ $string['course'] = 'Curso';
 $string['date'] = 'Data';
 $string['grade'] = 'Nota';
 $string['customtext'] = 'Programa do curso';
+$string['enrol_period'] = 'Período de realização';
+$string['printhours'] = 'Carga horária';
