@@ -8,4 +8,4 @@ $string['to'] = 'Awarded to';
 $string['course'] = 'Course';
 $string['date'] = 'On';
 $string['grade'] = 'Grade';
-
+$string['customtext'] = 'Course details';

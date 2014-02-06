@@ -8,4 +8,4 @@ $string['to'] = 'Zuerkannt';
 $string['course'] = 'Kurs';
 $string['date'] = 'Am';
 $string['grade'] = 'Bewertung';
-
+$string['customtext'] = 'Kurs details';
