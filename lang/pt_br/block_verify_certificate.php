@@ -11,3 +11,5 @@ $string['grade'] = 'Nota';
 $string['customtext'] = 'Programa do curso';
 $string['enrol_period'] = 'Período de realização';
 $string['printhours'] = 'Carga horária';
+$string['chooseprofilefields'] = 'Escolha os campos de perfil para mostrar';
+$string['nofields'] = 'Nenhum campo de perfil definido';

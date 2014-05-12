@@ -1,14 +1,19 @@
 <?php
 require_once("../../config.php");
 require_once("$CFG->dirroot/enrol/locallib.php");
+require_once("$CFG->libdir/blocklib.php");
+require_once("$CFG->dirroot/user/profile/lib.php");
 
 global $DB;
 
     $code = required_param('certnumber', PARAM_ALPHANUM);   // certificate code to verify
+    $fieldid = required_param('list', PARAM_SEQUENCE);
+    $fieldid = explode(',', $fieldid);
+    $profile_fields = $DB->get_records_list('user_info_field', 'id', $fieldid);
 
     $PAGE->set_pagelayout('standard');
     $strverify = get_string('verifycertificate', 'block_verify_certificate');
-    $PAGE->set_url('/blocks/verify_certificate/index.php', array('certnumber' => $id));
+    $PAGE->set_url('/blocks/verify_certificate/index.php', array('certnumber' => $code));
     $context = get_context_instance(CONTEXT_SYSTEM);
     $PAGE->set_context($context);
 
@@ -41,6 +46,8 @@ global $DB;
             if (!$user = $DB->get_record('user', array('id'=> $issue->userid))) {
                 print_error('user is unreachable');
             }
+
+            profile_load_data($user);
 
             $enrol_manager = new course_enrolment_manager($PAGE, $course);
             $user_enrols = $enrol_manager->get_user_enrolments($user->id);
@@ -83,6 +90,11 @@ global $DB;
             $certificatedate = userdate($issue->timecreated);
             echo '<p>' . get_string('certificate', 'block_verify_certificate') . " <strong>{$issue->code}</strong></p>";
             echo '<p><strong>' . get_string('to', 'block_verify_certificate') . ': </strong>' . fullname($user) . '</p>';
+            foreach ($profile_fields as $field) {
+                $fieldname = "profile_field_{$field->shortname}";
+                $fieldvalue = $user->$fieldname;
+                echo "<p><strong>{$field->name}: <strong>{$fieldvalue}";
+            }
             echo '<p><strong>' . get_string('course', 'block_verify_certificate') . ": </strong>{$course->fullname}</p>";
             echo '<p><strong>' . get_string('date', 'block_verify_certificate') . ": </strong>$certificatedate</p>";
             echo '<p><strong>' . get_string('enrol_period', 'block_verify_certificate') . ": </strong>$start_date - $end_date</p>";

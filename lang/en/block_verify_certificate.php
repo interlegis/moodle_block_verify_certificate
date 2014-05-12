@@ -11,3 +11,5 @@ $string['grade'] = 'Grade';
 $string['customtext'] = 'Course details';
 $string['enrol_period'] = 'Enroll period';
 $string['printhours'] = 'Hours';
+$string['chooseprofilefields'] = 'Choose profilefields to display';
+$string['nofields'] = 'No profilefields defined';

@@ -11,3 +11,5 @@ $string['grade'] = 'Bewertung';
 $string['customtext'] = 'Kurs details';
 $string['enrol_period'] = 'Einschreiben Zeitraum';
 $string['printhours'] = 'Stunden';
+$string['chooseprofilefields'] = 'Wählen Sie Profilfelder angezeigt';
+$string['nofields'] = 'Kein ProfilFeld definiert';
