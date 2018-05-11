@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,5 +14,30 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$plugin->version = 2009072901;
+/**
+ * Version details
+ *
+ * Verify certificate block
+ * --------------------------
+ * Verify certificate based on the unique codes displayed on issued certificates.
+ * Full details of the issued certificate is displayed including profile picture.
+ * Mostly cosmetic changes to the original codes from Jean-Michel Védrine.
+ * Original Autor & Copyright - Jean-Michel Védrine | 2014
+ *
+ * @copyright           2015 onwards Manieer Chhettri | Marie Curie, UK | <manieer@gmail.com>
+ * @author              Manieer Chhettri | Marie Curie, UK | <manieer@gmail.com> | 2015
+ * @package             block_verify_certificate
+ * @license             http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
+defined('MOODLE_INTERNAL') || die();
+
+$plugin->version  = 2016051200;                 // The current plugin version (Date: YYYYMMDDXX)
+$plugin->requires = 2014051203;                  // Requires this Moodle version 2.7.
+$plugin->cron = 0;                               // Period for cron to check this module (secs).
+$plugin->component = 'block_verify_certificate'; // To check on upgrade, that module sits in correct place.
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = 'v3.0';
+$plugin->dependencies = array(
+    'mod_certificate' => 2014041801
+);

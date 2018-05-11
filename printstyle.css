@@ -1,21 +1,20 @@
 @media print {
 body {
-	background:#FFFFFF;
+    background:#FFFFFF;
 }
-	#header, #header-home {
-		display: none;
-	}
+    #header, #header-home {
+        display: none;
+    }
 
-	#footer {
-		display: none;
-	}
-	
-	.navbar {
-	display:none;
-	}
-	
-	.printicon {
-	display:none;
-	}
+    #footer {
+        display: none;
+    }
 
+    .navbar {
+    display:none;
+    }
+
+    .printicon {
+    display:none;
+    }
 }

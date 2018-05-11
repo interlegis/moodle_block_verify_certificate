@@ -1,6 +1,4 @@
-# verify_certificate
-Moodle verify certificate block
-
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,10 +16,10 @@ Moodle verify certificate block
 
 /**
  * Version details
- * 
+ *
  * Verify certificate block
  * --------------------------
- * Verify certificate based on the unique codes displayed on issued certificates. 
+ * Verify certificate based on the unique codes displayed on issued certificates.
  * Full details of the issued certificate is displayed including profile picture.
  * Mostly cosmetic changes to the original codes from Jean-Michel Védrine.
  * Original Autor & Copyright - Jean-Michel Védrine | 2014
@@ -32,9 +30,30 @@ Moodle verify certificate block
  * @license             http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/*
-* INSTALL:
-* Download the folder and install it to /blocks/ folder within Moodle installation.
-* You will need to make sure all certificates have PRINT CODE to Yes under certificate settings.
-*/
+defined('MOODLE_INTERNAL') || die();
 
+$capabilities = array(
+
+    'block/verify_certificate:myaddinstance' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'user' => CAP_ALLOW
+        ),
+
+        'clonepermissionsfrom' => 'moodle/my:manageblocks'
+    ),
+
+    'block/verify_certificate:addinstance' => array(
+        'riskbitmask' => RISK_SPAM | RISK_XSS,
+
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        ),
+
+        'clonepermissionsfrom' => 'moodle/site:manageblocks'
+    ),
+);
