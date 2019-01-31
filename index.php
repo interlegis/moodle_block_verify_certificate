@@ -228,7 +228,7 @@ if (! $certificates) {
         if (($type = 'ST' || $type = 'CT') && $start_date && $end_date) {
             echo "<p><b>PERÍODO: </b>" . userdate($start_date, $dateformat) . " a " . userdate($end_date, $dateformat) . '<br /></p>';
         } else {
-            echo "<p><b>DATA: </b>" . userdate($certdata->timecreated, $dateformat) . '<br /></p>';
+            echo "<p><b>DATA: </b>" . userdate($certdata->citimecreated, $dateformat) . '<br /></p>';
 	}
 
 
